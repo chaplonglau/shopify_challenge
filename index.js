@@ -9,6 +9,7 @@ all_data=[]
 
 function getData(url,data_file){
   $.getJSON(url,function(data){
+    debugger
     data_file.concat(data.menus) 
     console.log(data_file)
     return data_file
@@ -20,7 +21,7 @@ function pullData(){
   console.log(url)
   $.getJSON(url,function(data){
     all_data=data.menus
-    console.log(hi)
+    debugger
     while (data.pagination.current_page * data.pagination.per_page < data.pagination.total){
       url=url.substring(0,url.length-1)+`${data.pagination.current_page+1}`
       all_data=getData(url,all_data)
